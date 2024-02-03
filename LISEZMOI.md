@@ -8,17 +8,17 @@ Ce dépôt de code contient un projet développé en langage Pascal Objet sous D
 
 ## Utiliser ce logiciel (travail en cours)
 
---Ce logiciel est disponible dans une version de production directement installable ou exécutable. Il est distribué en shareware.--
+__Ce logiciel est disponible dans une version de production directement installable ou exécutable. Il est distribué en shareware.__
 
---Vous pouvez le télécharger et le rediffuser gratuitement à condition de ne pas en modifier le contenu (installeur, programme, fichiers annexes, ...).--
+__Vous pouvez le télécharger et le rediffuser gratuitement à condition de ne pas en modifier le contenu (installeur, programme, fichiers annexes, ...).__
 
---[Télécharger le programme ou son installeur](DDD)--
+__[Télécharger le programme ou son installeur](DDD)__
 
---Si vous utilisez régulièrement ce logiciel et en êtes satisfait vous êtes invité à en acheter une licence d'utilisateur final. L'achat d'une licence vous donnera accès aux mises à jour du logiciel en plus d'activer d'évenuelles fonctionnalités optionnelles.--
+__Si vous utilisez régulièrement ce logiciel et en êtes satisfait vous êtes invité à en acheter une licence d'utilisateur final. L'achat d'une licence vous donnera accès aux mises à jour du logiciel en plus d'activer d'évenuelles fonctionnalités optionnelles.__
 
---[Acheter une licence](FFF)--
+__[Acheter une licence](FFF)__
 
---Vous pouvez aussi [consulter le site du logiciel](EEE) pour en savoir plus sur son fonctionnement, accéder à des vidéos et articles, connaître les différentes versions disponibles et leurs fonctionnalités, contacter le support utilisateurs...--
+__Vous pouvez aussi [consulter le site du logiciel](EEE) pour en savoir plus sur son fonctionnement, accéder à des vidéos et articles, connaître les différentes versions disponibles et leurs fonctionnalités, contacter le support utilisateurs...__
 
 ## Installation des codes sources
 

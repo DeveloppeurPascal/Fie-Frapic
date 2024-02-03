@@ -8,17 +8,17 @@ This code repository contains a project developed in Object Pascal language unde
 
 ## Using this software (work in progress)
 
---This software is available in a directly installable or executable production version. It is distributed as shareware.--
+__This software is available in a directly installable or executable production version. It is distributed as shareware.__
 
---You can download and redistribute it free of charge, provided you do not modify its content (installer, program, additional files, etc.).--
+__You can download and redistribute it free of charge, provided you do not modify its content (installer, program, additional files, etc.).__
 
---[Download program or installer](DDD)--
+__[Download program or installer](DDD)__
 
---If you use this software regularly and are satisfied with it, you are invited to purchase an end-user license. Purchasing a license will give you access to software updates, as well as enabling optional features.--
+__If you use this software regularly and are satisfied with it, you are invited to purchase an end-user license. Purchasing a license will give you access to software updates, as well as enabling optional features.__
 
---[Buy a license](FFF)--
+__[Buy a license](FFF)__
 
---You can also [visit the software website](EEE) to find out more about how it works, access videos and articles,find out about the different versions available and their features, contact user support...--
+__You can also [visit the software website](EEE) to find out more about how it works, access videos and articles,find out about the different versions available and their features, contact user support...__
 
 ## Source code installation
 
