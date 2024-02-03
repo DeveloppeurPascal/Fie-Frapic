@@ -1,0 +1,66 @@
+object cadBoutonMenu: TcadBoutonMenu
+  Locked = True
+  Size.Width = 756.000000000000000000
+  Size.Height = 240.000000000000000000
+  Size.PlatformDefault = False
+  object Rectangle1: TRectangle
+    Align = Client
+    HitTest = False
+    Margins.Left = -120.000000000000000000
+    Margins.Top = 30.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 30.000000000000000000
+    Size.Width = 606.000000000000000000
+    Size.Height = 180.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 20.000000000000000000
+    YRadius = 10.000000000000000000
+    object Text1: TText
+      Align = Client
+      HitTest = False
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 586.000000000000000000
+      Size.Height = 160.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'cccc'
+      TextSettings.HorzAlign = Trailing
+    end
+  end
+  object Circle1: TCircle
+    Align = Left
+    HitTest = False
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 240.000000000000000000
+    Size.Height = 220.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object Path1: TPath
+      Align = Client
+      HitTest = False
+      Margins.Left = 40.000000000000000000
+      Margins.Top = 40.000000000000000000
+      Margins.Right = 40.000000000000000000
+      Margins.Bottom = 40.000000000000000000
+      Size.Width = 160.000000000000000000
+      Size.Height = 140.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Fit
+    end
+  end
+  object ShadowEffect1: TShadowEffect
+    Distance = 3.000000000000000000
+    Direction = 45.000000000000000000
+    Softness = 0.300000011920929000
+    Opacity = 0.600000023841857900
+    ShadowColor = claBlack
+  end
+end

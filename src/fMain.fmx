@@ -1,0 +1,688 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Fie Frapic'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  DesignerMasterStyle = 0
+  object rHomeScreen: TRectangle
+    Align = Client
+    HitTest = False
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object sbHome: TVertScrollBox
+      Align = Client
+      Size.Width = 640.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 640.000000000000000000
+      Viewport.Height = 480.000000000000000000
+      object Layout1: TLayout
+        Align = Top
+        Position.Y = 150.000000000000000000
+        Size.Width = 640.000000000000000000
+        Size.Height = 300.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Layout2: TLayout
+          Align = HorzCenter
+          Position.X = 170.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 300.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          inline cadBoutonPrendrePhoto1: TcadBoutonPrendrePhoto
+            Align = Top
+            Locked = True
+            Size.Width = 300.000000000000000000
+            Size.Height = 100.000000000000000000
+            Size.PlatformDefault = False
+            OnClick = cadBoutonPrendrePhoto1Click
+            inherited Rectangle1: TRectangle
+              Size.Width = 150.000000000000000000
+              Size.Height = 40.000000000000000000
+              inherited Text1: TText
+                Size.Width = 130.000000000000000000
+                Size.Height = 20.000000000000000000
+              end
+            end
+            inherited Circle1: TCircle
+              Size.Height = 80.000000000000000000
+              inherited Path1: TPath
+                Size.Height = 0.000000000000000000
+              end
+            end
+          end
+          inline cadBoutonReglages1: TcadBoutonReglages
+            Align = Top
+            Locked = True
+            Position.Y = 100.000000000000000000
+            Size.Width = 300.000000000000000000
+            Size.Height = 100.000000000000000000
+            Size.PlatformDefault = False
+            OnClick = cadBoutonReglages1Click
+            inherited Rectangle1: TRectangle
+              Size.Width = 150.000000000000000000
+              Size.Height = 40.000000000000000000
+              inherited Text1: TText
+                Size.Width = 130.000000000000000000
+                Size.Height = 20.000000000000000000
+              end
+            end
+            inherited Circle1: TCircle
+              Size.Height = 80.000000000000000000
+              inherited Path1: TPath
+                Size.Height = 0.000000000000000000
+              end
+            end
+          end
+          inline cadBoutonAbout1: TcadBoutonAbout
+            Align = Top
+            Locked = True
+            Position.Y = 200.000000000000000000
+            Size.Width = 300.000000000000000000
+            Size.Height = 100.000000000000000000
+            Size.PlatformDefault = False
+            OnClick = cadBoutonAbout1Click
+            inherited Rectangle1: TRectangle
+              Size.Width = 150.000000000000000000
+              Size.Height = 40.000000000000000000
+              inherited Text1: TText
+                Size.Width = 130.000000000000000000
+                Size.Height = 20.000000000000000000
+              end
+            end
+            inherited Circle1: TCircle
+              Size.Height = 80.000000000000000000
+              inherited Path1: TPath
+                Size.Height = 0.000000000000000000
+              end
+            end
+          end
+        end
+      end
+      object Glyph1: TGlyph
+        Align = Top
+        Size.Width = 640.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dmProjectLogo.imgProjectLogo
+      end
+    end
+  end
+  object rOptionsScreen: TRectangle
+    Align = Client
+    HitTest = False
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object sbOptions: TVertScrollBox
+      Align = Client
+      Size.Width = 640.000000000000000000
+      Size.Height = 360.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 640.000000000000000000
+      Viewport.Height = 360.000000000000000000
+      object Glyph3: TGlyph
+        Align = Top
+        Size.Width = 640.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dmProjectLogo.imgProjectLogo
+      end
+      object gplOptionsTheme: TGridPanelLayout
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 160.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        ColumnCollection = <
+          item
+            Value = 40.000000000000000000
+          end
+          item
+            Value = 20.000000000000000000
+          end
+          item
+            Value = 40.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = icoOptionsThemeSombre
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = swOptionsThemeClair
+            Row = 0
+          end
+          item
+            Column = 2
+            Control = icoOptionsThemeClair
+            Row = 0
+          end>
+        RowCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        object icoOptionsThemeSombre: TPath
+          Align = Center
+          Data.Path = {
+            3900000000000000000040410000004002000000F6281C410000004002000000
+            C3F5F84033334340020000000000D0408FC29540010000008FC2FD401F85C340
+            02000000A4700D4148E19A4002000000B81E2541000080400200000000004041
+            0000804002000000CB2E6C410000804002000000000088416AA2C74002000000
+            0000884100001041020000000000884148E12A4102000000AE4781415C8F4241
+            02000000713D6E41C3F5504101000000E17A824100006841020000001F858F41
+            295C534102000000000098410AD7334102000000000098410000104102000000
+            00009841C849A440020000001CDB7D4100000040020000000000404102000040
+            0000000085EB5140000080400100000000000040D7A3A84001000000AE47A140
+            CDCC0441020000000000A040E17A0841020000000000A040F6280C4102000000
+            0000A04000001041020000000000A0407B143641020000007B14C6401F855741
+            02000000000000410AD76B410100000000000041000088410200000000000041
+            146B8C4102000000D72907410000904102000000000010410000904101000000
+            14AE6B4100009041010000000AD795410000B041010000000000A0418FC2A541
+            0100000085EB51400000804000000000295CE740000028410100000014AE4B41
+            000080410100000000002041000080410100000000002041AE47594102000000
+            48E10A410000504102000000B81EF5407B143E4102000000295CE74000002841
+            00000000000010410000A04101000000000010410000A8410200000000001041
+            146BAC4102000000D72917410000B04102000000000020410000B04101000000
+            000060410000B0410200000029D668410000B0410200000000007041146BAC41
+            02000000000070410000A84101000000000070410000A0410100000000001041
+            0000A04103000000000010410000A041}
+          HitTest = False
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Fit
+        end
+        object swOptionsThemeClair: TSwitch
+          Align = Client
+          IsChecked = False
+          Size.Width = 124.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnClick = swOptionsThemeClairClick
+        end
+        object icoOptionsThemeClair: TPath
+          Align = Center
+          Data.Path = {
+            4B000000000000000000A04100003041010000000000B8410000304101000000
+            0000B84100005041010000000000A04100005041010000000000A04100003041
+            000000000000803F000030410100000000008040000030410100000000008040
+            00005041010000000000803F00005041010000000000803F0000304100000000
+            000050410000803F010000000000504100008040010000000000304100008040
+            01000000000030410000803F01000000000050410000803F00000000A4709D40
+            00006040010000009A99E140E17AB44001000000F628B4409A99E14001000000
+            000060408FC29D4001000000A4709D4000006040000000009A998741F628B440
+            010000005C8F984100006040010000000000A4418FC29D4001000000C3F59241
+            9A99E140010000009A998741F628B44000000000000040410000C04002000000
+            F30475410000C04002000000000090410DFB0A41020000000000904100004041
+            02000000000090411F85634102000000EC518641AE4781410200000000007041
+            9A9989410100000000007041000098410200000000007041146B9C4102000000
+            29D668410000A04102000000000060410000A04101000000000020410000A041
+            02000000D72917410000A0410200000000001041146B9C410200000000001041
+            0000984101000000000010419A9989410200000052B8E640AE47814102000000
+            0000C0401F856341020000000000C04000004041020000000100C0400CFB0A41
+            020000000EFB0A41FFFFBF4002000000010040410000C0400000000000006041
+            0000A84101000000000060410000B0410200000000006041146BB44102000000
+            29D658410000B84102000000000050410000B84101000000000030410000B841
+            02000000D72927410000B8410200000000002041146BB4410200000000002041
+            0000B04101000000000020410000A84101000000000060410000A84100000000
+            0000304100009041010000000000504100009041010000000000504185EB7D41
+            0200000014AE6B4148E1764102000000000080418FC25D410200000000008041
+            0000404102000000000080415EA71C4102000000A25863410000004102000000
+            0000404100000041020000005EA71C410000004102000000000000415EA71C41
+            02000000000000410000404102000000000000418FC25D4102000000EC511441
+            48E17641020000000000304185EB7D4101000000000030410000904103000000
+            0000304100009041}
+          HitTest = False
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Fit
+        end
+      end
+    end
+    object Layout5: TLayout
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 370.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Layout6: TLayout
+        Align = HorzCenter
+        Position.X = 160.000000000000000000
+        Size.Width = 300.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        inline cadOptionsBoutonRetourAuMenu2: TcadBoutonRetourAuMenu
+          Align = Client
+          Locked = True
+          Size.Width = 300.000000000000000000
+          Size.Height = 100.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadOptionsBoutonRetourAuMenu2Click
+          inherited Rectangle1: TRectangle
+            Size.Width = 150.000000000000000000
+            Size.Height = 40.000000000000000000
+            inherited Text1: TText
+              Size.Width = 130.000000000000000000
+              Size.Height = 20.000000000000000000
+            end
+          end
+          inherited Circle1: TCircle
+            Size.Height = 80.000000000000000000
+            inherited Path1: TPath
+              Size.Height = 0.000000000000000000
+            end
+          end
+        end
+      end
+    end
+  end
+  object rPhotoValidationScreen: TRectangle
+    Align = Client
+    HitTest = False
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object imgPhotoFinale: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Contents
+      Size.Width = 640.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lPhotoValidHeader: TLayout
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      inline cadBoutonIconeClose2: TcadBoutonIconeClose
+        Align = Right
+        Position.X = 570.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = cadBoutonIconeClose2Click
+      end
+    end
+    object lPhotoValidFooter: TLayout
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 420.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      inline cadBoutonIconeTakePhoto2: TcadBoutonIconeTakePhoto
+        Align = HorzCenter
+        Position.X = 285.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = cadBoutonIconeTakePhoto2Click
+      end
+    end
+    object gplPhotoValidCenter: TGridPanelLayout
+      Align = Center
+      Size.Width = 100.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      ColumnCollection = <
+        item
+          Value = 50.000000000000000000
+        end
+        item
+          Value = 50.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 0
+          Control = cadBoutonIconeSave1
+          Row = 0
+        end
+        item
+          Column = 1
+          Control = cadBoutonIconeShare1
+          Row = 0
+        end>
+      RowCollection = <
+        item
+          Value = 100.000000000000000000
+        end>
+      inline cadBoutonIconeSave1: TcadBoutonIconeSave
+        Align = Client
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = cadBoutonIconeSave1Click
+      end
+      inline cadBoutonIconeShare1: TcadBoutonIconeShare
+        Align = Client
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = cadBoutonIconeShare1Click
+      end
+    end
+  end
+  object rAboutScreen: TRectangle
+    Align = Client
+    HitTest = False
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object sbAbout: TVertScrollBox
+      Align = Client
+      Size.Width = 640.000000000000000000
+      Size.Height = 360.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 640.000000000000000000
+      Viewport.Height = 360.000000000000000000
+      object Glyph2: TGlyph
+        Align = Top
+        Size.Width = 640.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 0
+        Images = dmProjectLogo.imgProjectLogo
+      end
+      object txtAbout: TText
+        Align = Top
+        AutoSize = True
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 160.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Leading
+      end
+    end
+    object Layout3: TLayout
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 370.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Layout4: TLayout
+        Align = HorzCenter
+        Position.X = 160.000000000000000000
+        Size.Width = 300.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        inline cadAboutBoutonRetourAuMenu1: TcadBoutonRetourAuMenu
+          Align = Client
+          Locked = True
+          Size.Width = 300.000000000000000000
+          Size.Height = 100.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadAboutBoutonRetourAuMenu1Click
+          inherited Rectangle1: TRectangle
+            Size.Width = 150.000000000000000000
+            Size.Height = 40.000000000000000000
+            inherited Text1: TText
+              Size.Width = 130.000000000000000000
+              Size.Height = 20.000000000000000000
+            end
+          end
+          inherited Circle1: TCircle
+            Size.Height = 80.000000000000000000
+            inherited Path1: TPath
+              Size.Height = 0.000000000000000000
+            end
+          end
+        end
+      end
+    end
+  end
+  object rPhotoScreen: TRectangle
+    Align = Client
+    HitTest = False
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object imgCamera: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Contents
+      Size.Width = 640.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lPhotoHeader: TLayout
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object gplHeader: TGridPanelLayout
+        Align = Client
+        Size.Width = 620.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ColumnCollection = <
+          item
+            Value = 25.000000000000000000
+          end
+          item
+            Value = 25.000000000000000000
+          end
+          item
+            Value = 25.000000000000000000
+          end
+          item
+            Value = 25.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = cadBoutonIconeZoomPlus1
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = cadBoutonIconeZoomMoins1
+            Row = 0
+          end
+          item
+            Column = 3
+            Control = cadBoutonIconeClose1
+            Row = 0
+          end>
+        RowCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        inline cadBoutonIconeZoomPlus1: TcadBoutonIconeZoomPlus
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+        end
+        inline cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+        end
+        inline cadBoutonIconeClose1: TcadBoutonIconeClose
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadBoutonIconeClose1Click
+        end
+      end
+    end
+    object lPhotoFooter: TLayout
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 420.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object gplFooter: TGridPanelLayout
+        Align = Client
+        Size.Width = 620.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ColumnCollection = <
+          item
+            Value = 30.000000000000000000
+          end
+          item
+            Value = 40.000000000000000000
+          end
+          item
+            Value = 30.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = lFlashOnOff
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = cadBoutonIconeTakePhoto1
+            Row = 0
+          end
+          item
+            Column = 2
+            Control = CadBoutonIconeChoixAppareil1
+            Row = 0
+          end>
+        RowCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        object lFlashOnOff: TLayout
+          Align = Center
+          TabOrder = 0
+          inline cadBoutonIconeFlashOn1: TcadBoutonIconeFlashOn
+            Align = Client
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            OnClick = cadBoutonIconeFlashOn1Click
+          end
+          inline cadBoutonIconeFlashOff1: TcadBoutonIconeFlashOff
+            Align = Client
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            OnClick = cadBoutonIconeFlashOff1Click
+          end
+        end
+        inline cadBoutonIconeTakePhoto1: TcadBoutonIconeTakePhoto
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadBoutonIconeTakePhoto1Click
+        end
+        inline CadBoutonIconeChoixAppareil1: TCadBoutonIconeChoixAppareil
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = CadBoutonIconeChoixAppareil1Click
+        end
+      end
+    end
+    object MaskPath: TPath
+      Align = Client
+      Fill.Kind = None
+      HitTest = False
+      Size.Width = 640.000000000000000000
+      Size.Height = 340.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 4.000000000000000000
+      Stroke.Dash = DashDotDot
+      WrapMode = Fit
+    end
+  end
+  object CameraComponent1: TCameraComponent
+    OnSampleBufferReady = CameraComponent1SampleBufferReady
+    Left = 512
+    Top = 176
+  end
+end
