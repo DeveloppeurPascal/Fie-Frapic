@@ -2,6 +2,8 @@ unit uConfig;
 
 interface
 
+// TODO : replir les champs XMLDoc
+
 type
 {$SCOPEDENUMS ON}
   TTypeCamera = (Front, Back);
@@ -14,14 +16,32 @@ type
     class function GetCameraType: TTypeCamera; static;
     class function GetisCameraFlashActive: boolean; static;
     class procedure SetisCameraFlashActive(const Value: boolean); static;
+    class function GetZoomLevel: integer; static;
+    class procedure SetZoomLevel(const Value: integer); static;
   protected
   public
+    /// <summary>
+    ///
+    /// </summary>
     class property ThemeSombreActif: boolean read GetThemeSombreActif
       write SetThemeSombreActif;
+    /// <summary>
+    ///
+    /// </summary>
     class property CameraType: TTypeCamera read GetCameraType
       write SetCameraType;
+    /// <summary>
+    ///
+    /// </summary>
     class property isCameraFlashActive: boolean read GetisCameraFlashActive
       write SetisCameraFlashActive;
+    /// <summary>
+    /// Niveau de zoom pour l'affichage de l'image capturée depuis la caméra.
+    /// </summary>
+    /// <remarks>
+    /// Calculé en pourcentage. Valeur par défaut 100%.
+    /// </remarks>
+    class property ZoomLevel: integer read GetZoomLevel write SetZoomLevel;
     class procedure save;
   end;
 
@@ -40,6 +60,7 @@ const
   CThemeSombreActif = 'tsa';
   CCameraType = 'ct';
   CCameraFlashActive = 'cfa';
+  CZoomLevel = 'zl';
 
 class function TConfig.GetCameraType: TTypeCamera;
 begin
@@ -54,6 +75,11 @@ end;
 class function TConfig.GetThemeSombreActif: boolean;
 begin
   result := TParams.getValue(CThemeSombreActif, isSystemThemeInDarkMode);
+end;
+
+class function TConfig.GetZoomLevel: integer;
+begin
+  result := TParams.getValue(CZoomLevel, 100);
 end;
 
 class procedure TConfig.save;
@@ -78,6 +104,12 @@ begin
     TParams.setValue(CThemeSombreActif, Value);
     TMessageManager.DefaultManager.SendMessage(nil, TMSGThemeChanged.Create);
   end;
+end;
+
+class procedure TConfig.SetZoomLevel(const Value: integer);
+begin
+  if (Value > 0) then
+    TParams.setValue(CZoomLevel, Value);
 end;
 
 procedure LoadParams;
