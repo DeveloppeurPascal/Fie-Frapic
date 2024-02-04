@@ -461,11 +461,13 @@ begin
       showmessage('Camera type unknown !');
     end;
 
+{$IF Defined(IOS) or Defined(MACOS)}
     try
       CameraComponent1.FocusMode := tfocusmode.ContinuousAutoFocus;
+      // crash sur Mac
     except
     end;
-
+{$ENDIF}
     CameraComponent1.active := true;
 
     CurrentScreen := rPhotoScreen;
@@ -616,8 +618,8 @@ begin
     slinebreak + '' + slinebreak +
     'Application mobile de prise de photo sur des événements ponctuels, Fie Frapic a été développée à l''origine pour la Saint Valentin 2024 sous Delphi 12 Alexandria.'
     + slinebreak + slinebreak +
-    'Certains éléments visuels sont sous licence d ''Adobe Stock ou Google.' +
-    slinebreak + slinebreak +
+    'Les éléments visuels (icones, images) proviennent de bibliothèques graphiques ou ont été créés spécifiquement pour ce programme. Ils sont sous licence d ''Adobe Stock, Google, Austin Andrews, Hans Böhm, Michael Irigoyen, Michael Richins, Colton Wiscombe et Patrick Prémartin. Ne les réutilisez pas sans accord préalable de leurs auteurs ou ayants droits.'
+    + slinebreak + slinebreak +
     'Pour en savoir plus rendez-vous sur https://fiefrapic.olfsoftware.fr' +
     slinebreak;
 end;
