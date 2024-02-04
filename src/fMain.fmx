@@ -504,12 +504,11 @@ object frmMain: TfrmMain
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    Visible = False
     object imgCamera: TImage
       MultiResBitmap = <
         item
         end>
-      Align = Contents
+      Align = Center
       Size.Width = 640.000000000000000000
       Size.Height = 480.000000000000000000
       Size.PlatformDefault = False
@@ -570,12 +569,14 @@ object frmMain: TfrmMain
           Size.Width = 50.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
+          OnClick = cadBoutonIconeZoomPlus1Click
         end
         inline cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins
           Align = Center
           Size.Width = 50.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
+          OnClick = cadBoutonIconeZoomMoins1Click
         end
         inline cadBoutonIconeClose1: TcadBoutonIconeClose
           Align = Center
