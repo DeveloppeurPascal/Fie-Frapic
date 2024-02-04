@@ -19,7 +19,8 @@ Const
   /// <summary>
   ///
   /// </summary>
-  CMenuBoutonBackgroundColorInDarkMode = TAlphaColors.Dimgray;
+  CMenuBoutonBackgroundColorInDarkMode = TAlphaColors.Darkgray;
+  // CMenuBoutonBackgroundColorInDarkMode = TAlphaColors.Dimgray;
   /// <summary>
   ///
   /// </summary>
@@ -35,7 +36,7 @@ Const
   /// <summary>
   ///
   /// </summary>
-  CBackgroundColorInDarkMode = CMenuBoutonBackgroundColorInDarkMode;
+  CBackgroundColorInDarkMode = TAlphaColors.Dimgray;
   /// <summary>
   ///
   /// </summary>
@@ -64,7 +65,8 @@ Const
   /// <summary>
   ///
   /// </summary>
-  CMenuBoutonBackgroundColorInLightMode = TAlphaColors.Lightyellow;
+  CMenuBoutonBackgroundColorInLightMode = TAlphaColors.Azure;
+  // CMenuBoutonBackgroundColorInLightMode = TAlphaColors.Lightyellow;
   /// <summary>
   ///
   /// </summary>
@@ -80,7 +82,7 @@ Const
   /// <summary>
   ///
   /// </summary>
-  CBackgroundColorInLightMode = CMenuBoutonBackgroundColorInLightMode;
+  CBackgroundColorInLightMode = TAlphaColors.Lightsalmon;
   /// <summary>
   ///
   /// </summary>
