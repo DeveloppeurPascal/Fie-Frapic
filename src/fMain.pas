@@ -111,6 +111,8 @@ type
     procedure cadBoutonIconeClose2Click(Sender: TObject);
     procedure cadBoutonIconeSave1Click(Sender: TObject);
     procedure cadBoutonIconeShare1Click(Sender: TObject);
+    procedure cadBoutonIconeZoomMoins1Click(Sender: TObject);
+    procedure cadBoutonIconeZoomPlus1Click(Sender: TObject);
   private
     FCurrentScreen: TRectangle;
     FCurrentProject: TcadPrjSaintValentin2014;
@@ -161,20 +163,20 @@ begin
   case tconfig.CameraType of
     ttypecamera.Front:
       try
-        CameraComponent1.Kind := tcamerakind.BackCamera;
+        CameraComponent1.Kind := TCameraKind.BackCamera;
         tconfig.CameraType := ttypecamera.back;
         tconfig.save;
       except
-        CameraComponent1.Kind := tcamerakind.frontCamera;
+        CameraComponent1.Kind := TCameraKind.FrontCamera;
         tconfig.CameraType := ttypecamera.Front;
       end;
     ttypecamera.back:
       try
-        CameraComponent1.Kind := tcamerakind.frontCamera;
+        CameraComponent1.Kind := TCameraKind.FrontCamera;
         tconfig.CameraType := ttypecamera.Front;
         tconfig.save;
       except
-        CameraComponent1.Kind := tcamerakind.BackCamera;
+        CameraComponent1.Kind := TCameraKind.BackCamera;
         tconfig.CameraType := ttypecamera.back;
       end;
   else
@@ -235,6 +237,18 @@ end;
 procedure TfrmMain.cadBoutonIconeTakePhoto2Click(Sender: TObject);
 begin
   GoToPhotoScreen;
+end;
+
+procedure TfrmMain.cadBoutonIconeZoomMoins1Click(Sender: TObject);
+begin
+  tconfig.ZoomLevel := tconfig.ZoomLevel - 5;
+  tconfig.save;
+end;
+
+procedure TfrmMain.cadBoutonIconeZoomPlus1Click(Sender: TObject);
+begin
+  tconfig.ZoomLevel := tconfig.ZoomLevel + 5;
+  tconfig.save;
 end;
 
 procedure TfrmMain.cadBoutonPrendrePhoto1Click(Sender: TObject);
@@ -320,8 +334,14 @@ end;
 
 procedure TfrmMain.CameraComponent1SampleBufferReady(Sender: TObject;
   const ATime: TMediaTime);
+var
+  w, h: single;
 begin
   CameraComponent1.SampleBufferToBitmap(imgCamera.Bitmap, true);
+  w := imgCamera.Bitmap.width * tconfig.ZoomLevel / 100;
+  h := imgCamera.Bitmap.Height * tconfig.ZoomLevel / 100;
+  if (imgCamera.width <> w) or (imgCamera.Height <> h) then
+    imgCamera.Size.Size := tsizef.Create(w, h);
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
@@ -434,17 +454,19 @@ begin
 
     case tconfig.CameraType of
       ttypecamera.Front:
-        CameraComponent1.Kind := tcamerakind.frontCamera;
+        CameraComponent1.Kind := TCameraKind.FrontCamera;
       ttypecamera.back:
-        CameraComponent1.Kind := tcamerakind.BackCamera;
+        CameraComponent1.Kind := TCameraKind.BackCamera;
     else
       showmessage('Camera type unknown !');
     end;
 
-    CameraComponent1.active := true;
+    try
+      CameraComponent1.FocusMode := tfocusmode.ContinuousAutoFocus;
+    except
+    end;
 
-    cadBoutonIconeZoomMoins1.visible := false; // TODO : à traiter
-    cadBoutonIconeZoomPlus1.visible := false; // TODO : à traiter
+    CameraComponent1.active := true;
 
     CurrentScreen := rPhotoScreen;
   end;
@@ -455,32 +477,48 @@ var
   Img0, Img1: TImage;
   Path: FMX.Objects.TPath;
   bmp: TBitmap;
+  MaskBounds: TRectF;
+  x, y, w, h: integer;
 begin
   Img0 := TImage.Create(self);
   try
     Img0.parent := self;
     Img0.Bitmap.Assign(FCurrentProject.imgBackground.Bitmap);
     Img0.width := Img0.Bitmap.width;
-    Img0.height := Img0.Bitmap.height;
+    Img0.Height := Img0.Bitmap.Height;
     Path := FMX.Objects.TPath.Create(self);
     try
       Path.parent := Img0;
       Path.align := talignlayout.center;
       Path.width := Img0.width - 2 * Img0.width / 10;
-      Path.height := Img0.height - 2 * Img0.height / 10;
+      Path.Height := Img0.Height - 2 * Img0.Height / 10;
       Path.WrapMode := TPathWrapMode.Fit;
       Path.data.data := FCurrentProject.MaskPath.data.data;
       Path.Stroke.Kind := TBrushKind.None;
       Path.fill.Kind := TBrushKind.Bitmap;
-      // TODO : à revoir (positionner la bonne partie de l'image de la caméra dans le masque)
-      Path.fill.Bitmap.Bitmap.Assign(imgCamera.Bitmap);
       Path.fill.Bitmap.WrapMode := twrapmode.TileStretch;
+      MaskBounds := MaskPath.data.GetBounds;
+      MaskBounds.Fit(MaskPath.BoundsRect);
+      // Fit() ne se contente pas de donner le ratio mais réduit aussi la taille
+      w := trunc(MaskBounds.width * 100 / tconfig.ZoomLevel);
+      h := trunc(MaskBounds.Height * 100 / tconfig.ZoomLevel);
+      bmp := TBitmap.Create(w, h);
+      try
+        x := trunc((imgCamera.width * 100 / tconfig.ZoomLevel - w) / 2);
+        y := trunc((imgCamera.Height * 100 / tconfig.ZoomLevel - h) / 2);
+        bmp.CopyFromBitmap(imgCamera.Bitmap, trect.Create(x, y, x + w,
+          y + h), 0, 0);
+        Path.fill.Bitmap.Bitmap.Assign(bmp);
+      finally
+        // Img0.Bitmap.Assign(bmp); // pour comparer capture et affichage
+        bmp.free;
+      end;
       Img1 := TImage.Create(self);
       try
         Img1.parent := Img0;
         Img1.Bitmap.Assign(FCurrentProject.imgForeground.Bitmap);
         Img1.width := Img0.width;
-        Img1.height := Img0.height;
+        Img1.Height := Img0.Height;
 
         bmp := Img0.MakeScreenshot;
         try
@@ -517,6 +555,7 @@ end;
 
 procedure TfrmMain.ModifieEtatDuFlash(isActive: boolean);
 begin
+{$IF Defined(IOS) or Defined(ANDROID)}
   try
     if isActive then
       CameraComponent1.FlashMode := TFlashMode.FlashOn
@@ -536,8 +575,9 @@ begin
     cadBoutonIconeFlashOff1.visible := true;
     tconfig.isCameraFlashActive := false;
     tconfig.save;
-    showmessage('Flash not available');
+    // showmessage('Flash not available');
   end;
+{$ENDIF}
 end;
 
 procedure TfrmMain.SetCurrentScreen(const Value: TRectangle);
@@ -585,5 +625,11 @@ end;
 initialization
 
 TDialogService.PreferredMode := TDialogService.TPreferredMode.Async;
+{$IFDEF MACOS}
+globalusemetal := true;
+{$ENDIF}
+{$IFDEF DEBUG}
+ReportMemoryLeaksOnShutdown := true;
+{$ENDIF}
 
 end.
