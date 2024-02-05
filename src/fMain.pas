@@ -476,13 +476,6 @@ begin
       showmessage('Camera type unknown !');
     end;
 
-{$IF Defined(ANDROID)}
-    try
-      CameraComponent1.FocusMode := tfocusmode.ContinuousAutoFocus;
-      // crash sur Mac & iOS
-    except
-    end;
-{$ENDIF}
     CameraComponent1.active := true;
 
     CurrentScreen := rPhotoScreen;
