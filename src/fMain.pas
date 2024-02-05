@@ -36,7 +36,9 @@ uses
   System.Messaging,
   FMX.Media,
   cBoutonIconeShare,
-  cBoutonIconeSave, cBoutonIconeZoom0;
+  cBoutonIconeSave,
+  cBoutonIconeZoom0,
+  uTypes;
 
 type
   TfrmMain = class(TForm)
@@ -130,12 +132,13 @@ type
     procedure TraduireTexte;
     procedure AfficheLesBonnesCouleurs;
     procedure GoToHomeScreen;
-    procedure GoToPhotoScreen(AskPermmission: boolean = true);
+    procedure GoToPhotoScreen(AskPermission: boolean = true);
     procedure GoToPhotoValidationScreen;
     procedure GoToOptionsScreen;
     procedure GoToAboutScreen;
     procedure HideAllScreens;
     procedure ModifieEtatDuFlash(isActive: boolean);
+    procedure ActiveLaCamera(ACamera: TTypeCamera);
   end;
 
 var
@@ -148,13 +151,12 @@ implementation
 uses
   FMX.DialogService,
   FMX.Platform,
-  FMX.MediaLibrary,
   System.Permissions,
   uStyleConsts,
   System.DateUtils,
   System.IOUtils,
   uConfig,
-  uTypes;
+  FMX.MediaLibrary;
 
 procedure TfrmMain.cadBoutonAbout1Click(Sender: TObject);
 begin
@@ -163,30 +165,21 @@ end;
 
 procedure TfrmMain.CadBoutonIconeChoixAppareil1Click(Sender: TObject);
 begin
-  CameraComponent1.active := false;
   case tconfig.CameraType of
-    ttypecamera.Front:
-      try
-        CameraComponent1.Kind := TCameraKind.BackCamera;
-        tconfig.CameraType := ttypecamera.back;
+    TTypeCamera.Front:
+      begin
+        tconfig.CameraType := TTypeCamera.back;
         tconfig.save;
-      except
-        CameraComponent1.Kind := TCameraKind.FrontCamera;
-        tconfig.CameraType := ttypecamera.Front;
       end;
-    ttypecamera.back:
-      try
-        CameraComponent1.Kind := TCameraKind.FrontCamera;
-        tconfig.CameraType := ttypecamera.Front;
+    TTypeCamera.back:
+      begin
+        tconfig.CameraType := TTypeCamera.Front;
         tconfig.save;
-      except
-        CameraComponent1.Kind := TCameraKind.BackCamera;
-        tconfig.CameraType := ttypecamera.back;
-      end;
+      end
   else
-    showmessage('Camera Type Unknown !');
+    raise exception.create('Camera Type Unknown !');
   end;
-  CameraComponent1.active := true;
+  ActiveLaCamera(tconfig.CameraType);
 end;
 
 procedure TfrmMain.cadPhotoBoutonIconeCloseClick(Sender: TObject);
@@ -270,6 +263,45 @@ begin
   GoToOptionsScreen;
 end;
 
+procedure TfrmMain.ActiveLaCamera(ACamera: TTypeCamera);
+begin
+  if CameraComponent1.active then
+    CameraComponent1.active := false;
+
+  try
+    case tconfig.CameraType of
+      TTypeCamera.Front:
+        CameraComponent1.Kind := TCameraKind.FrontCamera;
+      TTypeCamera.back:
+        CameraComponent1.Kind := TCameraKind.BackCamera;
+    else
+      raise exception.create('Camera type unknown !');
+    end;
+  except
+    CameraComponent1.Kind := TCameraKind.Default;
+    CadBoutonIconeChoixAppareil1.visible := false;
+  end;
+
+  lFlashOnOff.visible := CameraComponent1.HasFlash;
+  if CameraComponent1.HasFlash then
+    ModifieEtatDuFlash(tconfig.isCameraFlashActive);
+
+  try
+    CameraComponent1.quality := TVideoCaptureQuality.PhotoQuality;
+  except
+  end;
+
+  try
+{$IFDEF ANDROID}
+    CameraComponent1.FocusMode := TFocusMode.ContinuousAutoFocus;
+{$ENDIF}
+    CameraComponent1.active := true;
+  except
+    CameraComponent1.FocusMode := TFocusMode.locked;
+    CameraComponent1.active := true;
+  end;
+end;
+
 procedure TfrmMain.AfficheLesBonnesCouleurs;
 begin
   if tconfig.ThemeSombreActif then
@@ -327,7 +359,8 @@ begin
         CameraComponent1.active := false;
       end;
     TApplicationEvent.BecameActive:
-      CameraComponent1.active := (FCurrentScreen = rPhotoScreen);
+      if (FCurrentScreen = rPhotoScreen) then
+        ActiveLaCamera(tconfig.CameraType);
   end;
 end;
 
@@ -350,13 +383,13 @@ begin
   w := imgCamera.Bitmap.width * tconfig.ZoomLevel / 100;
   h := imgCamera.Bitmap.Height * tconfig.ZoomLevel / 100;
   if (imgCamera.width <> w) or (imgCamera.Height <> h) then
-    imgCamera.Size.Size := tsizef.Create(w, h);
+    imgCamera.Size.Size := tsizef.create(w, h);
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   FCurrentScreen := nil;
-  FCurrentProject := TcadPrjSaintValentin2014.Create(nil);
+  FCurrentProject := TcadPrjSaintValentin2014.create(nil);
 
   AfficheLesBonnesCouleurs;
   TMessageManager.DefaultManager.SubscribeToMessage(TMSGThemeChanged,
@@ -402,7 +435,7 @@ end;
 
 procedure TfrmMain.GoToAboutScreen;
 begin
-  sbAbout.ViewportPosition := tpointf.Create(0, 0);
+  sbAbout.ViewportPosition := tpointf.create(0, 0);
 
   txtAbout.TextSettings.Font.Size :=
     cadAboutBoutonRetourAuMenu1.Text1.TextSettings.Font.Size;
@@ -412,40 +445,34 @@ end;
 
 procedure TfrmMain.GoToHomeScreen;
 begin
-  sbHome.ViewportPosition := tpointf.Create(0, 0);
+  sbHome.ViewportPosition := tpointf.create(0, 0);
   CurrentScreen := rHomeScreen;
 end;
 
 procedure TfrmMain.GoToOptionsScreen;
 begin
-  sbOptions.ViewportPosition := tpointf.Create(0, 0);
+  sbOptions.ViewportPosition := tpointf.create(0, 0);
 
   swOptionsThemeClair.IsChecked := not tconfig.ThemeSombreActif;
 
   CurrentScreen := rOptionsScreen;
 end;
 
-procedure TfrmMain.GoToPhotoScreen(AskPermmission: boolean);
+procedure TfrmMain.GoToPhotoScreen(AskPermission: boolean);
 begin
-  if AskPermmission then
+  if AskPermission then
     TPermissionsService.DefaultService.RequestPermissions
       (['android.permission.CAMERA'],
       procedure(const APermissions: TClassicStringDynArray;
         const AGrantResults: TClassicPermissionStatusDynArray)
       var
         i: integer;
-        ok: boolean;
       begin
-        ok := true;
         for i := 0 to length(AGrantResults) - 1 do
           if (AGrantResults[i] = TPermissionStatus.Denied) then
-          begin
-            showmessage('Permission nécessaire pour prendre une photo.');
-            ok := false;
-            break;
-          end;
-        if ok then
-          GoToPhotoScreen(false);
+            raise exception.create
+              ('Permission nécessaire pour prendre une photo.');
+        GoToPhotoScreen(false);
       end,
       procedure(const APermissions: TClassicStringDynArray;
         const APostRationaleProc: TProc)
@@ -462,26 +489,7 @@ begin
   begin
     MaskPath.data.data := FCurrentProject.MaskPath.data.data;
 
-    if CameraComponent1.active then
-      CameraComponent1.active := false;
-
-    ModifieEtatDuFlash(tconfig.isCameraFlashActive);
-
-    try
-      case tconfig.CameraType of
-        ttypecamera.Front:
-          CameraComponent1.Kind := TCameraKind.FrontCamera;
-        ttypecamera.back:
-          CameraComponent1.Kind := TCameraKind.BackCamera;
-      else
-        showmessage('Camera type unknown !');
-      end;
-    except
-      CameraComponent1.Kind := TCameraKind.default;
-      CadBoutonIconeChoixAppareil1.visible := false;
-    end;
-
-    CameraComponent1.active := true;
+    ActiveLaCamera(tconfig.CameraType);
 
     CurrentScreen := rPhotoScreen;
   end;
@@ -495,13 +503,13 @@ var
   MaskBounds: TRectF;
   x, y, w, h: integer;
 begin
-  Img0 := TImage.Create(self);
+  Img0 := TImage.create(self);
   try
     Img0.parent := self;
     Img0.Bitmap.Assign(FCurrentProject.imgBackground.Bitmap);
     Img0.width := Img0.Bitmap.width;
     Img0.Height := Img0.Bitmap.Height;
-    Path := FMX.Objects.TPath.Create(self);
+    Path := FMX.Objects.TPath.create(self);
     try
       Path.parent := Img0;
       Path.align := talignlayout.contents;
@@ -519,18 +527,18 @@ begin
       // Fit() ne se contente pas de donner le ratio mais réduit aussi la taille
       w := trunc(MaskBounds.width * 100 / tconfig.ZoomLevel);
       h := trunc(MaskBounds.Height * 100 / tconfig.ZoomLevel);
-      bmp := TBitmap.Create(w, h);
+      bmp := TBitmap.create(w, h);
       try
         x := trunc((imgCamera.width * 100 / tconfig.ZoomLevel - w) / 2);
         y := trunc((imgCamera.Height * 100 / tconfig.ZoomLevel - h) / 2);
-        bmp.CopyFromBitmap(imgCamera.Bitmap, trect.Create(x, y, x + w,
+        bmp.CopyFromBitmap(imgCamera.Bitmap, trect.create(x, y, x + w,
           y + h), 0, 0);
         Path.fill.Bitmap.Bitmap.Assign(bmp);
       finally
         // Img0.Bitmap.Assign(bmp); // pour comparer capture et affichage
         bmp.free;
       end;
-      Img1 := TImage.Create(self);
+      Img1 := TImage.create(self);
       try
         Img1.parent := Img0;
         Img1.Bitmap.Assign(FCurrentProject.imgForeground.Bitmap);
@@ -595,7 +603,6 @@ begin
     cadBoutonIconeFlashOff1.visible := true;
     tconfig.isCameraFlashActive := false;
     tconfig.save;
-    // showmessage('Flash not available');
   end;
 {$ENDIF}
 end;
