@@ -473,7 +473,7 @@ begin
       showmessage('Camera type unknown !');
     end;
 
-{$IF Defined(IOS) or Defined(MACOS)}
+{$IF Defined(IOS) or Defined(ANDROID)}
     try
       CameraComponent1.FocusMode := tfocusmode.ContinuousAutoFocus;
       // crash sur Mac
@@ -503,9 +503,11 @@ begin
     Path := FMX.Objects.TPath.Create(self);
     try
       Path.parent := Img0;
-      Path.align := talignlayout.center;
-      Path.width := Img0.width - 2 * Img0.width / 10;
-      Path.Height := Img0.Height - 2 * Img0.Height / 10;
+      Path.align := talignlayout.contents;
+      Path.margins.top := 200;
+      Path.margins.right := 472;
+      Path.margins.bottom := 200;
+      Path.margins.left := 472;
       Path.WrapMode := TPathWrapMode.Fit;
       Path.data.data := FCurrentProject.MaskPath.data.data;
       Path.Stroke.Kind := TBrushKind.None;
