@@ -85,6 +85,8 @@ begin
       Rectangle1.margins.top := 10 + Circle1.height / 8;
       Rectangle1.margins.bottom := Rectangle1.margins.top;
       Text1.TextSettings.Font.Size := Text1.height / 2;
+      Text1.TextSettings.HorzAlign := TTextAlign.center;
+      Text1.margins.left := Circle1.height / 2;
       Path1.margins.top := Circle1.height / 5.5;
       Path1.margins.right := Path1.margins.top;
       Path1.margins.bottom := Path1.margins.top;
