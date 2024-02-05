@@ -504,14 +504,22 @@ object frmMain: TfrmMain
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    object imgCamera: TImage
-      MultiResBitmap = <
-        item
-        end>
-      Align = Center
+    object lBackground: TLayout
+      Align = Contents
       Size.Width = 640.000000000000000000
       Size.Height = 480.000000000000000000
       Size.PlatformDefault = False
+      TabOrder = 3
+      object imgCamera: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Center
+        HitTest = False
+        Size.Width = 640.000000000000000000
+        Size.Height = 480.000000000000000000
+        Size.PlatformDefault = False
+      end
     end
     object lPhotoHeader: TLayout
       Align = Top

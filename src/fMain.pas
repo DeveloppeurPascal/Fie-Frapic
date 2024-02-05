@@ -67,7 +67,6 @@ type
     icoOptionsThemeSombre: TPath;
     swOptionsThemeClair: TSwitch;
     icoOptionsThemeClair: TPath;
-    imgCamera: TImage;
     lPhotoHeader: TLayout;
     lPhotoFooter: TLayout;
     gplFooter: TGridPanelLayout;
@@ -92,6 +91,8 @@ type
     cadBoutonIconeZoomPlus1: TcadBoutonIconeZoomPlus;
     cadBoutonIconeZoom01: TcadBoutonIconeZoom0;
     cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins;
+    lBackground: TLayout;
+    imgCamera: TImage;
     procedure FormCreate(Sender: TObject);
     procedure cadBoutonAbout1Click(Sender: TObject);
     procedure cadBoutonPrendrePhoto1Click(Sender: TObject);
