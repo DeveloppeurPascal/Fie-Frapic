@@ -234,7 +234,6 @@ end;
 
 procedure TfrmMain.cadBoutonIconeTakePhoto1Click(Sender: TObject);
 begin
-  CameraComponent1.active := false;
   GoToPhotoValidationScreen;
 end;
 
@@ -463,6 +462,9 @@ begin
   begin
     MaskPath.data.data := FCurrentProject.MaskPath.data.data;
 
+    if CameraComponent1.active then
+      CameraComponent1.active := false;
+
     ModifieEtatDuFlash(tconfig.isCameraFlashActive);
 
     case tconfig.CameraType of
@@ -474,10 +476,10 @@ begin
       showmessage('Camera type unknown !');
     end;
 
-{$IF Defined(IOS) or Defined(ANDROID)}
+{$IF Defined(ANDROID)}
     try
       CameraComponent1.FocusMode := tfocusmode.ContinuousAutoFocus;
-      // crash sur Mac
+      // crash sur Mac & iOS
     except
     end;
 {$ENDIF}
@@ -553,6 +555,9 @@ begin
     Img0.free;
   end;
 
+{$IFDEF IOS}
+  cadBoutonIconeSave1.visible := false;
+{$ENDIF}
   cadBoutonIconeShare1.visible :=
     TPlatformServices.Current.SupportsPlatformService
     (IFMXShareSheetActionsService);
