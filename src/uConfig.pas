@@ -2,12 +2,12 @@ unit uConfig;
 
 interface
 
+uses
+  uTypes;
+
 // TODO : replir les champs XMLDoc
 
 type
-{$SCOPEDENUMS ON}
-  TTypeCamera = (Front, Back);
-
   TConfig = class
   private
     class procedure SetThemeSombreActif(const Value: boolean); static;
@@ -53,8 +53,7 @@ uses
   System.IOUtils,
   Olf.RTL.Params,
   Olf.RTL.SystemAppearance,
-  System.Messaging,
-  uTypes;
+  System.Messaging;
 
 const
   CThemeSombreActif = 'tsa';

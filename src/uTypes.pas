@@ -6,6 +6,12 @@ uses
   System.Messaging;
 
 type
+{$SCOPEDENUMS ON}
+  /// <summary>
+  /// Types des caméras prises en charge par le programme
+  /// </summary>
+  TTypeCamera = (Front, Back);
+
   /// <summary>
   /// Sent by the config unit (or the system) when the theme (light/dark) has changed.
   /// </summary>
