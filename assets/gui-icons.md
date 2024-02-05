@@ -70,6 +70,12 @@ https://pictogrammers.com/library/mdi/icon/export-variant/
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>export-variant</title><path d="M12,1L8,5H11V14H13V5H16M18,23H6C4.89,23 4,22.1 4,21V9A2,2 0 0,1 6,7H9V9H6V21H18V9H15V7H18A2,2 0 0,1 20,9V21A2,2 0 0,1 18,23Z" /></svg>
 
+### magnify
+
+https://pictogrammers.com/library/mdi/icon/magnify/
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>magnify</title><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+
 ## Austin Andrews
 
 https://pictogrammers.com/contributor/Templarian/
