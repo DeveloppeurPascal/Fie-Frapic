@@ -25,7 +25,8 @@ uses
   cBoutonIconeTakePhoto in 'cBoutonIconeTakePhoto.pas' {cadBoutonIconeTakePhoto: TFrame},
   cBoutonIconeClose in 'cBoutonIconeClose.pas' {cadBoutonIconeClose: TFrame},
   cBoutonIconeShare in 'cBoutonIconeShare.pas' {cadBoutonIconeShare: TFrame},
-  cBoutonIconeSave in 'cBoutonIconeSave.pas' {cadBoutonIconeSave: TFrame};
+  cBoutonIconeSave in 'cBoutonIconeSave.pas' {cadBoutonIconeSave: TFrame},
+  cBoutonIconeZoom0 in 'cBoutonIconeZoom0.pas' {cadBoutonIconeZoom0: TFrame};
 
 {$R *.res}
 
