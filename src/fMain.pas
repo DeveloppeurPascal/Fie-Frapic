@@ -36,7 +36,7 @@ uses
   System.Messaging,
   FMX.Media,
   cBoutonIconeShare,
-  cBoutonIconeSave;
+  cBoutonIconeSave, cBoutonIconeZoom0;
 
 type
   TfrmMain = class(TForm)
@@ -76,20 +76,22 @@ type
     cadBoutonIconeFlashOff1: TcadBoutonIconeFlashOff;
     cadBoutonIconeTakePhoto1: TcadBoutonIconeTakePhoto;
     CadBoutonIconeChoixAppareil1: TCadBoutonIconeChoixAppareil;
-    gplHeader: TGridPanelLayout;
-    cadBoutonIconeZoomPlus1: TcadBoutonIconeZoomPlus;
-    cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins;
-    cadBoutonIconeClose1: TcadBoutonIconeClose;
     CameraComponent1: TCameraComponent;
     imgPhotoFinale: TImage;
     lPhotoValidHeader: TLayout;
     lPhotoValidFooter: TLayout;
     gplPhotoValidCenter: TGridPanelLayout;
     cadBoutonIconeTakePhoto2: TcadBoutonIconeTakePhoto;
-    cadBoutonIconeClose2: TcadBoutonIconeClose;
+    cadPhotoValidBoutonIconeClose: TcadBoutonIconeClose;
     cadBoutonIconeSave1: TcadBoutonIconeSave;
     cadBoutonIconeShare1: TcadBoutonIconeShare;
     MaskPath: TPath;
+    cadPhotoBoutonIconeClose: TcadBoutonIconeClose;
+    lPhotoLeft: TLayout;
+    gplZoomButtons: TGridPanelLayout;
+    cadBoutonIconeZoomPlus1: TcadBoutonIconeZoomPlus;
+    cadBoutonIconeZoom01: TcadBoutonIconeZoom0;
+    cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins;
     procedure FormCreate(Sender: TObject);
     procedure cadBoutonAbout1Click(Sender: TObject);
     procedure cadBoutonPrendrePhoto1Click(Sender: TObject);
@@ -100,7 +102,6 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: WideChar;
       Shift: TShiftState);
     procedure FormDestroy(Sender: TObject);
-    procedure cadBoutonIconeClose1Click(Sender: TObject);
     procedure CameraComponent1SampleBufferReady(Sender: TObject;
       const ATime: TMediaTime);
     procedure CadBoutonIconeChoixAppareil1Click(Sender: TObject);
@@ -108,11 +109,13 @@ type
     procedure cadBoutonIconeFlashOn1Click(Sender: TObject);
     procedure cadBoutonIconeTakePhoto1Click(Sender: TObject);
     procedure cadBoutonIconeTakePhoto2Click(Sender: TObject);
-    procedure cadBoutonIconeClose2Click(Sender: TObject);
+    procedure cadPhotoValidBoutonIconeCloseClick(Sender: TObject);
     procedure cadBoutonIconeSave1Click(Sender: TObject);
     procedure cadBoutonIconeShare1Click(Sender: TObject);
     procedure cadBoutonIconeZoomMoins1Click(Sender: TObject);
     procedure cadBoutonIconeZoomPlus1Click(Sender: TObject);
+    procedure cadBoutonIconeZoom01Click(Sender: TObject);
+    procedure cadPhotoBoutonIconeCloseClick(Sender: TObject);
   private
     FCurrentScreen: TRectangle;
     FCurrentProject: TcadPrjSaintValentin2014;
@@ -185,12 +188,12 @@ begin
   CameraComponent1.active := true;
 end;
 
-procedure TfrmMain.cadBoutonIconeClose1Click(Sender: TObject);
+procedure TfrmMain.cadPhotoBoutonIconeCloseClick(Sender: TObject);
 begin
   GoToHomeScreen;
 end;
 
-procedure TfrmMain.cadBoutonIconeClose2Click(Sender: TObject);
+procedure TfrmMain.cadPhotoValidBoutonIconeCloseClick(Sender: TObject);
 begin
   GoToHomeScreen;
 end;
@@ -237,6 +240,12 @@ end;
 procedure TfrmMain.cadBoutonIconeTakePhoto2Click(Sender: TObject);
 begin
   GoToPhotoScreen;
+end;
+
+procedure TfrmMain.cadBoutonIconeZoom01Click(Sender: TObject);
+begin
+  tconfig.ZoomLevel := 100;
+  tconfig.save;
 end;
 
 procedure TfrmMain.cadBoutonIconeZoomMoins1Click(Sender: TObject);

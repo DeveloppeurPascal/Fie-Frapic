@@ -340,13 +340,13 @@ object frmMain: TfrmMain
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      inline cadBoutonIconeClose2: TcadBoutonIconeClose
+      inline cadPhotoValidBoutonIconeClose: TcadBoutonIconeClose
         Align = Right
         Position.X = 570.000000000000000000
         Size.Width = 50.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        OnClick = cadBoutonIconeClose2Click
+        OnClick = cadPhotoValidBoutonIconeCloseClick
       end
     end
     object lPhotoValidFooter: TLayout
@@ -524,67 +524,14 @@ object frmMain: TfrmMain
       Size.Width = 620.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
-      object gplHeader: TGridPanelLayout
-        Align = Client
-        Size.Width = 620.000000000000000000
+      TabOrder = 1
+      inline cadPhotoBoutonIconeClose: TcadBoutonIconeClose
+        Align = Right
+        Position.X = 570.000000000000000000
+        Size.Width = 50.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
-        ColumnCollection = <
-          item
-            Value = 25.000000000000000000
-          end
-          item
-            Value = 25.000000000000000000
-          end
-          item
-            Value = 25.000000000000000000
-          end
-          item
-            Value = 25.000000000000000000
-          end>
-        ControlCollection = <
-          item
-            Column = 0
-            Control = cadBoutonIconeZoomPlus1
-            Row = 0
-          end
-          item
-            Column = 1
-            Control = cadBoutonIconeZoomMoins1
-            Row = 0
-          end
-          item
-            Column = 3
-            Control = cadBoutonIconeClose1
-            Row = 0
-          end>
-        RowCollection = <
-          item
-            Value = 100.000000000000000000
-          end>
-        inline cadBoutonIconeZoomPlus1: TcadBoutonIconeZoomPlus
-          Align = Center
-          Size.Width = 50.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          OnClick = cadBoutonIconeZoomPlus1Click
-        end
-        inline cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins
-          Align = Center
-          Size.Width = 50.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          OnClick = cadBoutonIconeZoomMoins1Click
-        end
-        inline cadBoutonIconeClose1: TcadBoutonIconeClose
-          Align = Center
-          Size.Width = 50.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          OnClick = cadBoutonIconeClose1Click
-        end
+        OnClick = cadPhotoBoutonIconeCloseClick
       end
     end
     object lPhotoFooter: TLayout
@@ -598,7 +545,7 @@ object frmMain: TfrmMain
       Size.Width = 620.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 2
       object gplFooter: TGridPanelLayout
         Align = Client
         Size.Width = 620.000000000000000000
@@ -670,15 +617,107 @@ object frmMain: TfrmMain
       end
     end
     object MaskPath: TPath
-      Align = Client
+      Align = Contents
       Fill.Kind = None
       HitTest = False
+      Margins.Top = 70.000000000000000000
+      Margins.Bottom = 70.000000000000000000
       Size.Width = 640.000000000000000000
       Size.Height = 340.000000000000000000
       Size.PlatformDefault = False
       Stroke.Thickness = 4.000000000000000000
       Stroke.Dash = DashDotDot
       WrapMode = Fit
+    end
+    object lPhotoLeft: TLayout
+      Align = Left
+      Position.Y = 70.000000000000000000
+      Size.Width = 70.000000000000000000
+      Size.Height = 340.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object gplZoomButtons: TGridPanelLayout
+        Align = VertCenter
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 95.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ColumnCollection = <
+          item
+            Value = 100.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = cadBoutonIconeZoomPlus1
+            Row = 0
+          end
+          item
+            Column = 0
+            Control = cadBoutonIconeZoom01
+            Row = 1
+          end
+          item
+            Column = 0
+            Control = cadBoutonIconeZoomMoins1
+            Row = 2
+          end>
+        RowCollection = <
+          item
+            Value = 33.000000000000000000
+          end
+          item
+            Value = 34.000000000000000000
+          end
+          item
+            Value = 33.000000000000000000
+          end>
+        inline cadBoutonIconeZoomPlus1: TcadBoutonIconeZoomPlus
+          Align = Client
+          Size.Width = 50.000000000000000000
+          Size.Height = 49.500000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadBoutonIconeZoomPlus1Click
+          inherited Rectangle1: TRectangle
+            Size.Height = 49.500000000000000000
+          end
+          inherited Path1: TPath
+            Size.Height = 39.500000000000000000
+          end
+        end
+        inline cadBoutonIconeZoom01: TcadBoutonIconeZoom0
+          Align = Client
+          Size.Width = 50.000000000000000000
+          Size.Height = 51.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadBoutonIconeZoom01Click
+          inherited Rectangle1: TRectangle
+            Size.Height = 51.000000000000000000
+          end
+          inherited Path1: TPath
+            Size.Height = 41.000000000000000000
+          end
+        end
+        inline cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins
+          Align = Client
+          Size.Width = 50.000000000000000000
+          Size.Height = 49.500000000000000000
+          Size.PlatformDefault = False
+          OnClick = cadBoutonIconeZoomMoins1Click
+          inherited Rectangle1: TRectangle
+            Size.Height = 49.500000000000000000
+          end
+          inherited Path1: TPath
+            Size.Height = 39.500000000000000000
+          end
+        end
+      end
     end
   end
   object CameraComponent1: TCameraComponent
