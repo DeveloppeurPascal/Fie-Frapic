@@ -467,13 +467,18 @@ begin
 
     ModifieEtatDuFlash(tconfig.isCameraFlashActive);
 
-    case tconfig.CameraType of
-      ttypecamera.Front:
-        CameraComponent1.Kind := TCameraKind.FrontCamera;
-      ttypecamera.back:
-        CameraComponent1.Kind := TCameraKind.BackCamera;
-    else
-      showmessage('Camera type unknown !');
+    try
+      case tconfig.CameraType of
+        ttypecamera.Front:
+          CameraComponent1.Kind := TCameraKind.FrontCamera;
+        ttypecamera.back:
+          CameraComponent1.Kind := TCameraKind.BackCamera;
+      else
+        showmessage('Camera type unknown !');
+      end;
+    except
+      CameraComponent1.Kind := TCameraKind.default;
+      CadBoutonIconeChoixAppareil1.visible := false;
     end;
 
     CameraComponent1.active := true;
