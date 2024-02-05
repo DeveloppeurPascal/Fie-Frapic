@@ -29,7 +29,7 @@ object frmMain: TfrmMain
       Viewport.Height = 480.000000000000000000
       object Layout1: TLayout
         Align = Top
-        Position.Y = 150.000000000000000000
+        Position.Y = 170.000000000000000000
         Size.Width = 640.000000000000000000
         Size.Height = 300.000000000000000000
         Size.PlatformDefault = False
@@ -112,8 +112,14 @@ object frmMain: TfrmMain
         end
       end
       object Glyph1: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
         Align = Top
-        Size.Width = 640.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 620.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         ImageIndex = 0
@@ -138,8 +144,14 @@ object frmMain: TfrmMain
       Viewport.Width = 640.000000000000000000
       Viewport.Height = 360.000000000000000000
       object Glyph3: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
         Align = Top
-        Size.Width = 640.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 620.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         ImageIndex = 0
@@ -152,7 +164,7 @@ object frmMain: TfrmMain
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Position.X = 10.000000000000000000
-        Position.Y = 160.000000000000000000
+        Position.Y = 180.000000000000000000
         Size.Width = 620.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
@@ -431,8 +443,14 @@ object frmMain: TfrmMain
       Viewport.Width = 640.000000000000000000
       Viewport.Height = 360.000000000000000000
       object Glyph2: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
         Align = Top
-        Size.Width = 640.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 620.000000000000000000
         Size.Height = 150.000000000000000000
         Size.PlatformDefault = False
         ImageIndex = 0
@@ -446,7 +464,7 @@ object frmMain: TfrmMain
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Position.X = 10.000000000000000000
-        Position.Y = 160.000000000000000000
+        Position.Y = 180.000000000000000000
         Size.Width = 620.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
