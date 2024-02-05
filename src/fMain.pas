@@ -404,6 +404,9 @@ procedure TfrmMain.GoToAboutScreen;
 begin
   sbAbout.ViewportPosition := tpointf.Create(0, 0);
 
+  txtAbout.TextSettings.Font.Size :=
+    cadAboutBoutonRetourAuMenu1.Text1.TextSettings.Font.Size;
+
   CurrentScreen := rAboutScreen;
 end;
 
