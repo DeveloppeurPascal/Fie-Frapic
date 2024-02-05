@@ -1,8 +1,0 @@
-
-=> refaire l'icone du programme
-=> faire des images de démarrage pour iOS (ou désactiver les actuelles)
-=> tester sur Android
-=> tester sur iOS
-=> soumettre la v1.0 à Apple
-=> soumettre la v1.0 à Google
-=> soumettre la v1.0 à Amazon
