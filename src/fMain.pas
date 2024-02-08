@@ -38,7 +38,8 @@ uses
   cBoutonIconeShare,
   cBoutonIconeSave,
   cBoutonIconeZoom0,
-  uTypes;
+  uTypes,
+  FMX.fhtmlcomp;
 
 type
   TfrmMain = class(TForm)
@@ -57,7 +58,6 @@ type
     cadBoutonAbout1: TcadBoutonAbout;
     sbAbout: TVertScrollBox;
     Glyph2: TGlyph;
-    txtAbout: TText;
     Layout3: TLayout;
     Layout4: TLayout;
     cadAboutBoutonRetourAuMenu1: TcadBoutonRetourAuMenu;
@@ -95,6 +95,7 @@ type
     cadBoutonIconeZoomMoins1: TcadBoutonIconeZoomMoins;
     lBackground: TLayout;
     imgCamera: TImage;
+    txtAboutHTML: THtLabel;
     procedure FormCreate(Sender: TObject);
     procedure cadBoutonAbout1Click(Sender: TObject);
     procedure cadBoutonPrendrePhoto1Click(Sender: TObject);
@@ -139,6 +140,7 @@ type
     procedure HideAllScreens;
     procedure ModifieEtatDuFlash(isActive: boolean);
     procedure ActiveLaCamera(ACamera: TTypeCamera);
+    procedure ReloadAboutText;
   end;
 
 var
@@ -315,7 +317,8 @@ begin
     rPhotoValidationScreen.fill.Color := rHomeScreen.fill.Color;
     // ********************
     // * About Screen
-    txtAbout.TextSettings.FontColor := CTextColorInDarkMode;
+    txtAboutHTML.TextSettings.FontColor := CTextColorInDarkMode;
+    ReloadAboutText;
     // ********************
     // * Options Screen
     icoOptionsThemeSombre.Stroke.Color := CIconStrokeColorInDarkMode;
@@ -337,7 +340,8 @@ begin
     rPhotoValidationScreen.fill.Color := rHomeScreen.fill.Color;
     // ********************
     // * About Screen
-    txtAbout.TextSettings.FontColor := CTextColorInLightMode;
+    txtAboutHTML.TextSettings.FontColor := CTextColorInLightMode;
+    ReloadAboutText;
     // ********************
     // * Options Screen
     icoOptionsThemeSombre.Stroke.Color := CIconStrokeColorInLightMode;
@@ -437,8 +441,9 @@ procedure TfrmMain.GoToAboutScreen;
 begin
   sbAbout.ViewportPosition := tpointf.create(0, 0);
 
-  txtAbout.TextSettings.Font.Size :=
+  txtAboutHTML.TextSettings.Font.Size :=
     cadAboutBoutonRetourAuMenu1.Text1.TextSettings.Font.Size;
+  ReloadAboutText;
 
   CurrentScreen := rAboutScreen;
 end;
@@ -607,6 +612,55 @@ begin
 {$ENDIF}
 end;
 
+procedure TfrmMain.ReloadAboutText;
+begin
+  txtAboutHTML.Text := '<h1 style="text-align:center;color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">Fie FraPic</h1>' + '<p style="color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">Application mobile de prise de photo sur des événements ponctuels, Fie Frapic a été créée à l''origine pour la Saint Valentin 2024 mais évoluera en fonction de la demande et des événements auxquels on nous proposera de participer.</p>'
+    + '<h2 style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) + ';">Licences</h2>' + '<p style="color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">Les éléments visuels (icones, images) proviennent de bibliothèques graphiques ou ont été créés spécifiquement pour ce programme. Ils sont sous licence d''Adobe Stock, Google, Austin Andrews, Hans Böhm, Michael Irigoyen, Michael Richins, Colton Wiscombe et Patrick Prémartin.<br/>Ne les réutilisez pas sans accord préalable de leurs auteurs ou ayants droits.</p>'
+    + '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">Cette application a été développée sous Delphi 12 Athens.</p>' +
+    '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">L''application utilise également des éléments de la librairie Delphi HTML Components d''Alexander Sviridenkov.</p>'
+    + '<h2 style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) + ';">Infos éditeur</h2>' + '<p style="color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">Cette application a été développée par Patrick Prémartin.</p>' +
+    '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">Elle est éditée par la société OLF SOFTWARE immatriculée au registre du commerce et des ociétés de Paris (France) sous la référence 439521725.</p>'
+    + '<h2 style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) + ';">Données personnelles</h2>' + '<p style="color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">Fie Frapix est autonome dans sa version courante. Elle ne dépend pas d''internet et ne communique rien à l''extérieur.</p>'
+    + '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">Nous n''avons pas connaissance de ce que vous en faites. Les photos ne sont pas stockées par l''application.</p>'
+    + '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">Aucune information vous concernant ne nous est transmise ou n''est transmise par l''application à des tiers.</p>'
+    + '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">Nous n''utilisons pas de cookies, pas de tracking, pas de stats sur votre utilisation de l''application.</p>'
+    + '<h2 style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) + ';">Support</h2>' + '<p style="color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">Si vous avez des questions ou désirez des fonctionnalités supplémentaires, laissez nous un message sur le site de l''application.</p>'
+    + '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
+    .Substring(2) +
+    ';">Pour en savoir plus rendez-vous sur <a href="https://fiefrapic.olfsoftware.fr">https://fiefrapic.olfsoftware.fr</a>&nbsp;</p>'
+    + '<p style="text-align:center;color:#' +
+    inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
+    ';">(c) 2024 Patrick Prémartin</p>';
+end;
+
 procedure TfrmMain.SetCurrentScreen(const Value: TRectangle);
 begin
   if assigned(FCurrentScreen) then
@@ -639,14 +693,7 @@ begin
   // TODO : traduire texte selon la langue en cours (ou choisie par l'utilisateur)
 
   // Texte de l'écran des informations légales (crédits et licences)
-  txtAbout.Text := 'Fie FraPic' + slinebreak + '(c) 2024 Patrick Prémartin' +
-    slinebreak + '' + slinebreak +
-    'Application mobile de prise de photo sur des événements ponctuels, Fie Frapic a été développée à l''origine pour la Saint Valentin 2024 sous Delphi 12 Alexandria.'
-    + slinebreak + slinebreak +
-    'Les éléments visuels (icones, images) proviennent de bibliothèques graphiques ou ont été créés spécifiquement pour ce programme. Ils sont sous licence d ''Adobe Stock, Google, Austin Andrews, Hans Böhm, Michael Irigoyen, Michael Richins, Colton Wiscombe et Patrick Prémartin. Ne les réutilisez pas sans accord préalable de leurs auteurs ou ayants droits.'
-    + slinebreak + slinebreak +
-    'Pour en savoir plus rendez-vous sur https://fiefrapic.olfsoftware.fr' +
-    slinebreak;
+  ReloadAboutText;
 end;
 
 initialization

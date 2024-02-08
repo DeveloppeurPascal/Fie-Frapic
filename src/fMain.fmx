@@ -433,7 +433,6 @@ object frmMain: TfrmMain
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    Visible = False
     object sbAbout: TVertScrollBox
       Align = Client
       Size.Width = 640.000000000000000000
@@ -456,7 +455,7 @@ object frmMain: TfrmMain
         ImageIndex = 0
         Images = dmProjectLogo.imgProjectLogo
       end
-      object txtAbout: TText
+      object txtAboutHTML: THtLabel
         Align = Top
         AutoSize = True
         Margins.Left = 10.000000000000000000
@@ -466,9 +465,11 @@ object frmMain: TfrmMain
         Position.X = 10.000000000000000000
         Position.Y = 180.000000000000000000
         Size.Width = 620.000000000000000000
-        Size.Height = 50.000000000000000000
+        Size.Height = 15.960937500000000000
         Size.PlatformDefault = False
-        TextSettings.HorzAlign = Leading
+        TextSettings.Trimming = None
+        Text = 'txtAboutHTML'
+        TabOrder = 1
       end
     end
     object Layout3: TLayout
@@ -522,6 +523,7 @@ object frmMain: TfrmMain
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    Visible = False
     object lBackground: TLayout
       Align = Contents
       Size.Width = 640.000000000000000000
