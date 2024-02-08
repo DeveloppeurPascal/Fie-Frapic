@@ -28,6 +28,8 @@ This project uses dependencies in the form of sub-modules. They will be absent f
 
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be installed in the ./lib-externes/librairies subfolder.
 
+Some formatted text is displayed using the [Delphi HTML Components](https://delphihtmlcomponents.com/) library. A license for this library is required if you wish to recompile the project as is.
+
 ## License to use this code repository and its contents
 
 This source code is distributed under the [AGPL 3.0 or later license](https://choosealicense.com/licenses/agpl-3.0/).
