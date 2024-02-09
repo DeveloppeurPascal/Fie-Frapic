@@ -8,9 +8,7 @@ Ce dépôt de code contient un projet développé en langage Pascal Objet sous D
 
 ## Utiliser ce logiciel
 
-Fie Frapic est disponible pour les appareils Android depuis [Amazon Appstore](https://www.amazon.com/gp/product/B0CV2Q9JMM).
-
-Il a été soumis à Google Play et est en attente d'approbation.
+Fie Frapic est disponible pour les appareils Android depuis [Amazon Appstore](https://www.amazon.com/gp/product/B0CV2Q9JMM) et [Google Play](https://play.google.com/store/apps/details?id=fr.olfsoftware.fiefrapic).
 
 Pour iOS (iPhone, iPad, iPad Pro), je dois corriger un bug avant de le soumettre à l'App Store.
 

@@ -8,9 +8,7 @@ This code repository contains a project developed in Object Pascal language unde
 
 ## Using this software
 
-Fie Frapic is available for Android devices from [Amazon Appstore](https://www.amazon.com/gp/product/B0CV2Q9JMM).
-
-It has been submitted to Google Play and is waitig for approval.
+Fie Frapic is available for Android devices from [Amazon Appstore](https://www.amazon.com/gp/product/B0CV2Q9JMM) and [Google Play](https://play.google.com/store/apps/details?id=fr.olfsoftware.fiefrapic).
 
 For iOS (iPhone, iPad, iPad Pro) I need to fix a bug before submitting to App Store.
 
