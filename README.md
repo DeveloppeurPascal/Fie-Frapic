@@ -6,11 +6,19 @@ Mobile application for taking selfies with a background image for special events
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
+## Talks and conferences
+
+### Twitch
+
+Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/fie-frapic.html) mostly in French.
+
 ## Using this software
 
 Fie Frapic is available for Android devices from [Amazon Appstore](https://www.amazon.com/gp/product/B0CV2Q9JMM) and [Google Play](https://play.google.com/store/apps/details?id=fr.olfsoftware.fiefrapic).
 
 For iOS (iPhone, iPad, iPad Pro) I need to fix a bug before submitting to App Store.
+
+You can also [visit the software website](https://fiefrapic.olfsoftware.fr) to find out more about how it works, access videos and articles, find out about the different versions available and their features, contact user support...
 
 ## Source code installation
 
@@ -21,6 +29,16 @@ This project uses dependencies in the form of sub-modules. They will be absent f
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be installed in the ./lib-externes/librairies subfolder.
 
 Some formatted text is displayed using the [Delphi HTML Components](https://delphihtmlcomponents.com/) library. A license for this library is required if you wish to recompile the project as is.
+
+## Compatibility
+
+As an [Embarcadero MVP](https://www.embarcadero.com/resources/partners/mvp-directory), I benefit from the latest versions of [Delphi](https://www.embarcadero.com/products/delphi) and [C++ Builder](https://www.embarcadero.com/products/cbuilder) in [RAD Studio](https://www.embarcadero.com/products/rad-studio) as soon as they are released. I therefore work with these versions.
+
+Normally, my libraries and components should also run on at least the current version of [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter).
+
+There's no guarantee of compatibility with earlier versions, even though I try to keep my code clean and avoid using too many of the new ways of writing in it (type inference, inline var and multiline strings).
+
+If you detect any anomalies on earlier versions, please don't hesitate to [report them](https://github.com/DeveloppeurPascal/Fie-Frapic/issues) so that I can test and try to correct or provide a workaround.
 
 ## License to use this code repository and its contents
 
