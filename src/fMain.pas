@@ -635,7 +635,7 @@ begin
     ';">Cette application a été développée par Patrick Prémartin.</p>' +
     '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
     .Substring(2) +
-    ';">Elle est éditée par la société OLF SOFTWARE immatriculée au registre du commerce et des ociétés de Paris (France) sous la référence 439521725.</p>'
+    ';">Elle est éditée par la société OLF SOFTWARE immatriculée au registre du commerce et des sociétés de Paris (France) sous la référence 439521725.</p>'
     + '<h2 style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
     .Substring(2) + ';">Données personnelles</h2>' + '<p style="color:#' +
     inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
