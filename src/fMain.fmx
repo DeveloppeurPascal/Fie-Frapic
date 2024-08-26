@@ -753,4 +753,18 @@ object frmMain: TfrmMain
     Left = 512
     Top = 176
   end
+  object OlfAboutDialog1: TOlfAboutDialog
+    Titre = 'Fie Frapic'
+    VersionNumero = '1.3'
+    VersionDate = '20240826'
+    MultiResBitmap = <
+      item
+      end>
+    Images = dmProjectLogo.imgProjectLogo
+    ImageIndex = 0
+    URL = 'https://fiefrapic.olfsoftware.fr/'
+    ReplaceMainFormCaption = True
+    Left = 304
+    Top = 224
+  end
 end

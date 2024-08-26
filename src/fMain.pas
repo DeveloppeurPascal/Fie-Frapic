@@ -39,7 +39,8 @@ uses
   cBoutonIconeSave,
   cBoutonIconeZoom0,
   uTypes,
-  FMX.fhtmlcomp;
+  FMX.fhtmlcomp,
+  Olf.FMX.AboutDialog;
 
 type
   TfrmMain = class(TForm)
@@ -96,6 +97,7 @@ type
     lBackground: TLayout;
     imgCamera: TImage;
     txtAboutHTML: THtLabel;
+    OlfAboutDialog1: TOlfAboutDialog;
     procedure FormCreate(Sender: TObject);
     procedure cadBoutonAbout1Click(Sender: TObject);
     procedure cadBoutonPrendrePhoto1Click(Sender: TObject);
@@ -430,10 +432,18 @@ var KeyChar: WideChar; Shift: TShiftState);
 begin
   if (Key = vkEscape) or (Key = vkHardwareBack) then
   begin
+    Key := 0;
+    KeyChar := #0;
     if CurrentScreen = rHomeScreen then
       close
     else
       GoToHomeScreen;
+  end
+  else if (Key = vkF1) then
+  begin
+    Key := 0;
+    KeyChar := #0;
+    OlfAboutDialog1.Execute;
   end;
 end;
 
@@ -616,7 +626,7 @@ procedure TfrmMain.ReloadAboutText;
 begin
   txtAboutHTML.Text := '<h1 style="text-align:center;color:#' +
     inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
-    ';">Fie FraPic</h1>' + '<p style="color:#' +
+    ';">'+OlfAboutDialog1.GetMainFormCaption+'</h1>' + '<p style="color:#' +
     inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
     ';">Application mobile de prise de photo sur des événements ponctuels, Fie Frapic a été créée à l''origine pour la Saint Valentin 2024 mais évoluera en fonction de la demande et des événements auxquels on nous proposera de participer.</p>'
     + '<h2 style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
