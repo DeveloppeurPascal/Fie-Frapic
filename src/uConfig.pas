@@ -5,7 +5,7 @@ interface
 uses
   uTypes;
 
-// TODO : replir les champs XMLDoc
+// TODO : remplir les champs XMLDoc
 
 type
   TConfig = class
