@@ -3,16 +3,13 @@ program FieFrapic;
 uses
   FMX.Forms,
   fMain in 'fMain.pas' {frmMain},
-  Olf.RTL.SystemAppearance in '..\lib-externes\librairies\Olf.RTL.SystemAppearance.pas',
   cBoutonMenu in 'cBoutonMenu.pas' {cadBoutonMenu: TFrame},
   cBoutonPrendrePhoto in 'cBoutonPrendrePhoto.pas' {cadBoutonPrendrePhoto: TFrame},
   cBoutonAbout in 'cBoutonAbout.pas' {cadBoutonAbout: TFrame},
   cBoutonReglages in 'cBoutonReglages.pas' {cadBoutonReglages: TFrame},
-  Olf.RTL.Language in '..\lib-externes\librairies\Olf.RTL.Language.pas',
   uDMProjectLogo in 'uDMProjectLogo.pas' {dmProjectLogo: TDataModule},
   uStyleConsts in 'uStyleConsts.pas',
   uConfig in 'uConfig.pas',
-  Olf.RTL.Params in '..\lib-externes\librairies\Olf.RTL.Params.pas',
   cBoutonRetourAuMenu in 'cBoutonRetourAuMenu.pas' {cadBoutonRetourAuMenu: TFrame},
   uTypes in 'uTypes.pas',
   cPrjSaintValentin2014 in '..\_PRIVATE\src\cPrjSaintValentin2014.pas' {cadPrjSaintValentin2014: TFrame},
@@ -28,7 +25,10 @@ uses
   cBoutonIconeSave in 'cBoutonIconeSave.pas' {cadBoutonIconeSave: TFrame},
   cBoutonIconeZoom0 in 'cBoutonIconeZoom0.pas' {cadBoutonIconeZoom0: TFrame},
   Olf.FMX.AboutDialog in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialog.pas',
-  Olf.FMX.AboutDialogForm in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialogForm.pas' {OlfAboutDialogForm};
+  Olf.FMX.AboutDialogForm in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialogForm.pas' {OlfAboutDialogForm},
+  Olf.RTL.Language in '..\lib-externes\librairies\src\Olf.RTL.Language.pas',
+  Olf.RTL.Params in '..\lib-externes\librairies\src\Olf.RTL.Params.pas',
+  Olf.RTL.SystemAppearance in '..\lib-externes\librairies\src\Olf.RTL.SystemAppearance.pas';
 
 {$R *.res}
 

@@ -503,7 +503,6 @@
         <DCCReference Include="fMain.pas">
             <Form>frmMain</Form>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\librairies\Olf.RTL.SystemAppearance.pas"/>
         <DCCReference Include="cBoutonMenu.pas">
             <Form>cadBoutonMenu</Form>
             <DesignClass>TFrame</DesignClass>
@@ -520,14 +519,12 @@
             <Form>cadBoutonReglages</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\librairies\Olf.RTL.Language.pas"/>
         <DCCReference Include="uDMProjectLogo.pas">
             <Form>dmProjectLogo</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="uStyleConsts.pas"/>
         <DCCReference Include="uConfig.pas"/>
-        <DCCReference Include="..\lib-externes\librairies\Olf.RTL.Params.pas"/>
         <DCCReference Include="cBoutonRetourAuMenu.pas">
             <Form>cadBoutonRetourAuMenu</Form>
             <FormType>fmx</FormType>
@@ -599,6 +596,9 @@
             <Form>OlfAboutDialogForm</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Language.pas"/>
+        <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Params.pas"/>
+        <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.SystemAppearance.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
