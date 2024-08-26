@@ -26,7 +26,9 @@ uses
   cBoutonIconeClose in 'cBoutonIconeClose.pas' {cadBoutonIconeClose: TFrame},
   cBoutonIconeShare in 'cBoutonIconeShare.pas' {cadBoutonIconeShare: TFrame},
   cBoutonIconeSave in 'cBoutonIconeSave.pas' {cadBoutonIconeSave: TFrame},
-  cBoutonIconeZoom0 in 'cBoutonIconeZoom0.pas' {cadBoutonIconeZoom0: TFrame};
+  cBoutonIconeZoom0 in 'cBoutonIconeZoom0.pas' {cadBoutonIconeZoom0: TFrame},
+  Olf.FMX.AboutDialog in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialog.pas',
+  Olf.FMX.AboutDialogForm in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialogForm.pas' {OlfAboutDialogForm};
 
 {$R *.res}
 
