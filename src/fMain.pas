@@ -30,8 +30,8 @@
   https://github.com/DeveloppeurPascal/Fie-Frapic
 
   ***************************************************************************
-  File last update : 2025-07-03T10:43:59.344+02:00
-  Signature : 891540f581d88d73ecd7082cbb36e58a11b92885
+  File last update : 2025-07-07T10:49:54.000+02:00
+  Signature : f465928f9db34ac936a1f94b19010413dda77576
   ***************************************************************************
 *)
 
@@ -672,7 +672,7 @@ begin
     ';">Les éléments visuels (icones, images) proviennent de bibliothèques graphiques ou ont été créés spécifiquement pour ce programme. Ils sont sous licence d''Adobe Stock, Google, Austin Andrews, Hans Böhm, Michael Irigoyen, Michael Richins, Colton Wiscombe et Patrick Prémartin.<br/>Ne les réutilisez pas sans accord préalable de leurs auteurs ou ayants droits.</p>'
     + '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
     .Substring(2) +
-    ';">Cette application a été développée sous Delphi 12 Athens.</p>' +
+    ';">Cette application a été développée sous Delphi 12.3 Athens.</p>' +
     '<p style="color:#' + inttohex(txtAboutHTML.TextSettings.FontColor)
     .Substring(2) +
     ';">L''application utilise également des éléments de la librairie Delphi HTML Components d''Alexander Sviridenkov.</p>'
@@ -705,7 +705,7 @@ begin
     ';">Pour en savoir plus rendez-vous sur <a href="https://fiefrapic.olfsoftware.fr">https://fiefrapic.olfsoftware.fr</a>&nbsp;</p>'
     + '<p style="text-align:center;color:#' +
     inttohex(txtAboutHTML.TextSettings.FontColor).Substring(2) +
-    ';">(c) 2024 Patrick Prémartin</p>';
+    ';">(c) 2024-2025 Patrick Prémartin</p>';
 end;
 
 procedure TfrmMain.SetCurrentScreen(const Value: TRectangle);
